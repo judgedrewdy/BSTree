@@ -11,11 +11,10 @@ public class BinaryST {
 		this.root = root;
 	}
 	
-	public void BSTInsert (Node newNode) {
+	public void BSTInsert (int newNodeData) {
+		Node newNode = new Node(newNodeData, null, null);
 		if (root == null ) {
 			root = newNode;
-			root.setLeftChild(null);
-			root.setRightChild(null);
 		}
 		else {
 			Node cur = root;
@@ -44,7 +43,15 @@ public class BinaryST {
 		}
 	}
 	
-	public static void main(String[] args) {
-		
-	}
+	public void BSTPrintInorder(Node root) {  
+		Node node = new Node();
+		node = root;
+		if (node == null) {
+		      return;                    
+		  }
+		  
+		  BSTPrintInorder(node.getLeftChild());   
+		  System.out.print(node.getData() + " ");                    
+		  BSTPrintInorder(node.getRightChild()) ; 
+		}
 }
